@@ -13,12 +13,13 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 
-	printf("cwd = %s\n", getcwd(cwd, sizeof(cwd)));
+	printf("cwd = %s\n", getcwd(cwd, sizeof(cwd)));	// current working directory
 	snprintf(fullname, sizeof(fullname), "%s/%s", cwd, argv[1]);
 	printf("fullname = %s\n", fullname);
 
 	if(fchmodat(AT_FDCWD, fullname, 0644, AT_SYMLINK_NOFOLLOW) < 0)
 		perror("fchmodat");
+		// The fchmodat() system call operates in exactly the same way as chmod(2), except for the differences described in this manual page.
 
 	return 0;
 }

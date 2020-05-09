@@ -13,9 +13,7 @@ int main() {
 		exit(0);
 	} else {		// parent
 		char cmd[128];
-		snprintf(cmd, sizeof(cmd),
-			"ps -uwp %d",
-			pid);
+		snprintf(cmd, sizeof(cmd), "ps -uwp %d", pid);
 		printf("sleeping for 2 seconds ...\n");
 		sleep(2);
 		system(cmd);

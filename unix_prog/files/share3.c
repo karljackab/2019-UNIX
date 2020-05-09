@@ -16,6 +16,7 @@ void * seek_and_write(void *args) {
 	usleep(1);
 	printf("T%ld writes @ %ld\n", id+1, id * 5 % 10);
 	usleep(1);
+	// ssize_t pwrite(int filedes, const void *buf, size_t nbytes, off_t offset);
 	pwrite(fd, buf, 1, id * 5 % 10);
 	return NULL;
 }

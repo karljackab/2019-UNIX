@@ -19,11 +19,10 @@ int main() {
 	if(fgets(d.buf, 20, stdin) != NULL) {
 		int g = strtol(d.buf, NULL, 0);
 		printf("Your guess is %d\n", g);
-		if(g == d.answer) {
+		if(g == d.answer)
 			printf("Bingo!\n");
-		} else {
+		else 
 			printf("No no no ...\n");
-		}
 	}
 
 	return 0;

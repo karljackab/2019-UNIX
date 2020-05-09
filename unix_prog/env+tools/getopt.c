@@ -4,6 +4,11 @@
 int main(int argc, char *argv[]) {
 	int i, ch;
 
+	/*
+	char *optarg：如果有参数，则包含当前选项参数字符串
+	int optind：argv的当前索引值。当getopt函数在while循环中使用时，剩下的字符串为操作数，下标从optind到argc-1。
+	*/
+
 	while((ch = getopt(argc, argv, "ac:vi:")) != -1) {
 		switch(ch) {
 		case 'a':

@@ -9,8 +9,7 @@ int main(int argc, char *argv[], char *envp[]) {
 	}
 	printf("\n");
 	//
-	for(i = 0; envp[i] != NULL; i++) 
-		;
+	for(i = 0; envp[i] != NULL; i++);
 	printf("Total %d environment variables.\n", i);
 	return 0;
 }

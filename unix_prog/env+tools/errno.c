@@ -6,7 +6,7 @@ int main() {
 	FILE *fp;
 	if((fp = fopen("/tmp/xyz", "r")) == NULL) {
 		int z = errno;
-		perror("fopen");
+		perror("fopen");	// void perror(char *string); 拋出最近一次錯誤訊息
 		fprintf(stderr, "fopen(%d): %s\n", z, strerror(z));
 		return -1;
 	}

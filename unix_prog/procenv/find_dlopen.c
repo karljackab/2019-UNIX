@@ -8,8 +8,7 @@
 #define __RTLD_DLOPEN	0x80000000
 typedef void * (*__libc_dlopen_mode_t)(const char *, int);
 
-__libc_dlopen_mode_t
-find_dlopen(void *handle) {
+__libc_dlopen_mode_t find_dlopen(void *handle) {
 	__libc_dlopen_mode_t fptr = NULL;
 	if(handle == NULL) {
 		perror("dlopen");
@@ -23,8 +22,7 @@ find_dlopen(void *handle) {
 	return fptr;
 }
 
-long
-find_libcbase(pid_t pid) {
+long find_libcbase(pid_t pid) {
 	char buf[1024];
 	FILE *fp;
 	long base = 0;
@@ -69,4 +67,3 @@ int main(int argc, char *argv[]) {
 	dlclose(handle);
 	return 0;
 }
-

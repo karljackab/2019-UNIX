@@ -11,13 +11,15 @@ int main() {
 	struct termios t, oldt;
 	sigset_t set, oset;
 	
+	// ctermid() returns a string which is the pathname for the current controlling terminal for this process.
 	if((fd = open(ctermid(NULL)/*"/dev/tty"*/, O_RDWR)) < 0) {
 		perror("open(/dev/tty)");
 		return -1;
 	}
 
-	sigemptyset(&set);
-	sigaddset(&set, SIGINT);  /* block SIGINT */
+	sigemptyset(&set);	// 用来将参数set 信号集初始化并清空.
+	// sigaddset(sigset_t *set, int signum) 用来将参数signum 代表的信号加入至参数set 信号集里.
+	sigaddset(&set, SIGINT);  /* block SIGINT */	
 	sigaddset(&set, SIGTSTP); /* block SIGTSTP */
 	sigprocmask(SIG_BLOCK, &set, &oset);
 

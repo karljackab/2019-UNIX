@@ -13,6 +13,10 @@ int main() {
 	printf("                ctime: %s", ctime_r(&t, buf));
 	printf("    gmtime -> asctime: %s", asctime(&tm1));
 	printf(" localtime -> asctime: %s", asctime(&tm2));
+	
+	// size_t strftime(char *str, size_t maxsize, const char *format, const struct tm *timeptr)
+	// 格式表示的時間結構timeptr根據定義格式並存儲到str格式規則。
+	// %Z Timezone name or abbreviation
 	strftime(buf, sizeof(buf), "%c %Z (%z)", &tm1);
 	printf("   gmtime -> strftime: %s\n", buf);
 	strftime(buf, sizeof(buf), "%c %Z (%z)", &tm2);

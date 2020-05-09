@@ -17,8 +17,7 @@ int global;
 void print_address();
 void* small_alloc(int size);
 
-int
-main() {
+int main() {
 	void *m;
 #ifdef __linux__
 	if(mallopt(M_MMAP_THRESHOLD, MMAP_THRESHOLD) == 1) {
@@ -51,8 +50,7 @@ main() {
 	return 0;
 }
 
-void
-print_address() {
+void print_address() {
 	int s;
 	int *m = malloc(sizeof(int)*64);
 	void *hh = dlopen("libc.so.6", RTLD_LAZY);
@@ -88,8 +86,7 @@ print_address() {
 	return;
 }
 
-void*
-small_alloc(int size) {
+void* small_alloc(int size) {
 	void *m1 = NULL, *m = NULL;
 	const int block = MMAP_THRESHOLD / 2;
 	while(size > 0) {

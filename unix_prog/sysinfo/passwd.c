@@ -14,8 +14,7 @@ void output(const char *prefix, char *encrypted, int saltlen) {
 	return;
 }
 
-char *
-salt(int n, char *salt) {
+char* salt(int n, char *salt) {
 	int i;
 	static char ch[] =
 		"abcdefghijklmnopqrstuvwxyz"
@@ -23,14 +22,12 @@ salt(int n, char *salt) {
 		"1234567890./";
 	if(salt == NULL)
 		return salt;
-	for(i = 0; i < n; i++) {
+	for(i = 0; i < n; i++)
 		salt[i] = ch[rand() % sizeof(ch)];
-	}
 	return salt;
 }
 
-int
-main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 	char *ptr, p[64];
 	char *p_des, s_des[64] = "";
 	char *p_md5, s_md5[64] = "$1$";

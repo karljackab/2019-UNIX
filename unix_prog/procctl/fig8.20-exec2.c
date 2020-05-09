@@ -4,8 +4,7 @@
 #include <sys/wait.h>
 
 #define err_sys(s)	{ perror(s); exit(-1); }
-int
-main(void)
+int main(void)
 {
 	pid_t	pid;
 
